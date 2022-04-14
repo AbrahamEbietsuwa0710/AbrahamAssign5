@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--Abraham Ebietsuwa, N01420710, RNB-->
+    <!--Abraham Ebietsuwa, student no:N01420710, RNB-->
 
     //tools:showIn"navigation_view">
     <group android:checkableBehavior="single">
