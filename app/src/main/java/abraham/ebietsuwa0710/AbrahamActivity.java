@@ -1,4 +1,4 @@
-//Abraham Ebietsuwa, student no:N01420710, RNB
+//Abraham Ebietsuwa, N01420710, RNB
 package abraham.ebietsuwa0710;
 
 import android.os.Bundle;
@@ -31,7 +31,7 @@ public class AbrahamActivity extends AppCompatActivity implements NavigationView
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+       drawer.addDrawerListener(toggle);
         toggle.syncState();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
