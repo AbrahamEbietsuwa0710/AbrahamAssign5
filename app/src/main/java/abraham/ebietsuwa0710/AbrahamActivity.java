@@ -1,4 +1,4 @@
-//Abraham Ebietsuwa, N01420710, RNB
+//Abraham Ebietsuwa, student no:N01420710, RNB
 package abraham.ebietsuwa0710;
 
 import android.os.Bundle;
