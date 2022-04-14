@@ -10,11 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AbrahamAssign4">
         <activity
-            android:name=".AbrahamActivity1"
-            android:exported="false"
-            android:label="@string/title_activity_abraham1"
-            android:theme="@style/Theme.AbrahamAssign4.NoActionBar" />
-        <activity
             android:name=".AbrahamActivity"
             android:exported="true">
             <intent-filter>
