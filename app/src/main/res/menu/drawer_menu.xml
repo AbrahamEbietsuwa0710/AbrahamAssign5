@@ -5,27 +5,27 @@
     //tools:showIn"navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/Abraham.nav_home"
             android:icon="@drawable/ic_home"
             android:title="home" />
         <item
-            android:id="@+id/nav_downloads"
+            android:id="@+id/Abraham.nav_downloads"
             android:icon="@drawable/ic_downloads"
             android:title="Downloads" />
         <item
-            android:id="@+id/nav_weather"
+            android:id="@+id/Abraham.nav_weather"
             android:icon="@drawable/ic_weather"
             android:title="Weather" />
         <item
-            android:id="@+id/nav_filecontent"
+            android:id="@+id/Abraham.nav_filecontent"
             android:icon="@drawable/ic_filecontent"
             android:title="file content" />
         <item
-            android:id="@+id/nav_settings"
+            android:id="@+id/Abraham.nav_settings"
             android:icon="@drawable/ic_settings"
             android:title="settings" />
         <item
-            android:id="@+id/nav_shape"
+            android:id="@+id/Abraham.nav_shape"
             android:icon="@drawable/ic_shape"
             android:title="shape" />
     </group>
@@ -33,11 +33,11 @@
     <item android:title="communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/Abraham.nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="share"/>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/Abraham.nav_send"
                 android:icon="@drawable/ic_send"
                 android:title="send"/>
 
