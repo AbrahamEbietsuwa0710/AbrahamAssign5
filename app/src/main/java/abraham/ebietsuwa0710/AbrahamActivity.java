@@ -14,6 +14,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import abraham.ebietsuwa0710.ui.weather.WeatherFragment;
+
 public class AbrahamActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
 
@@ -52,7 +54,7 @@ public class AbrahamActivity extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nav_weather:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new weatherFragment()).commit();
+                        new WeatherFragment()).commit();
                 break;
             case R.id.nav_shape:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

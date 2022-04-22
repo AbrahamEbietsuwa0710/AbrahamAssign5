@@ -2,15 +2,13 @@
 <!--Abraham Ebietsuwa, N01420710, RNB-->
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    tools:context=".AbrahamActivity">
+    tools:context=".AbrahamActivity"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -23,6 +21,8 @@
             android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:title="Abraham Ebietsuwa"
+            app:menu="@menu/abraham_activity1"
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary"/>
 

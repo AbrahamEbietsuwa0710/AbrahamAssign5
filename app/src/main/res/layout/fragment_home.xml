@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Abraham Ebietsuwa, N01420710, RNB-->
+<?xml version="1.0" encoding="utf-8"?><!--Abraham Ebietsuwa, N01420710, RNB-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".home.HomeFragment"
     android:background="@android:color/holo_green_light">
 
     <TextView
@@ -21,14 +21,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextClock
         android:id="@+id/Abraham.textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:format12Hour="hh:mm:ss a"
-        tools:ignore="MissingConstraints" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

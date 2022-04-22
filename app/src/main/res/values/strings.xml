@@ -11,4 +11,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="emails">
+        <item>Abraham@gmail.com</item>
+        <item>Abraham@yandex.com</item>
+        <item>Abraham@yhoo.com</item>
+        <item>Abraham@proton.com</item>
+        <item>Abraham@outlook.com</item>
+<!--        <item>john@gmail.com</item>-->
+<!--        <item>john@gmail.com</item>-->
+<!--        <item>john@gmail.com</item>-->
+<!--        <item>john@gmail.com</item>-->
+<!--        <item>john@gmail.com</item>-->
+    </string-array>
 </resources>
