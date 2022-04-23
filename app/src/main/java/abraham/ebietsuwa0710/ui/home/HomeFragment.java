@@ -2,13 +2,25 @@ package abraham.ebietsuwa0710.ui.home;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RadialGradient;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.SweepGradient;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +29,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.DateFormat;
@@ -36,7 +50,9 @@ public class HomeFragment extends Fragment {
 //        binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         TextView dateText = root.findViewById(R.id.the_date);
+        TextClock textClock = root.findViewById(R.id.Abraham_textClock);
 
         DateFormat dateFormat = new SimpleDateFormat();
 //        Toast.makeText(getActivity(), "pppppppppppppppppppppppppppppppppppppppppppppppppppp", Toast.LENGTH_LONG).show();
@@ -66,7 +82,6 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-
                 if (!theInfo.trim().isEmpty()) {
                     try {
 
@@ -75,7 +90,7 @@ public class HomeFragment extends Fragment {
                         outputStreamWriter.close();
 
                         Toast.makeText(getContext(), "File saved", Toast.LENGTH_SHORT).show();
-                        saveToFile.setText("");
+                        someInfo.setText("");
                     } catch (IOException e) {
                         e.printStackTrace();
                         Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
@@ -88,27 +103,53 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        SharedPreferences sharedpreferences = getContext().getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
-//
-//        String sTime = sharedpreferences.getString("abrahamTime", "");
+        SharedPreferences sharedpreferences = getContext().getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
 
-//        if (sTime != null) {
-//            Toast.makeText(getContext(), "ggggg", Toast.LENGTH_LONG).show();
-//
-//            if (sTime.equals("12hr")) {
+        String sTime = sharedpreferences.getString("abrahamTime", "");
 
-//                binding.AbrahamTextClock.setFormat12Hour("hh:mm:ss a");
-//                binding.AbrahamTextClock.setFormat24Hour(null);
-//                Toast.makeText(getContext(), "ggggg", Toast.LENGTH_LONG).show();
+        if (sTime != null) {
 
+            if (sTime.equals("12hr")) {
+                textClock.setFormat24Hour(null);
+            } else {
+               textClock.setFormat12Hour(null);
+            }
+        }
 
-//            } else {
-//                binding.AbrahamTextClock.setFormat24Hour("hh:mm:ss a");
-//                binding.AbrahamTextClock.setFormat12Hour(null);
-//                Toast.makeText(getContext(), "kkk", Toast.LENGTH_LONG).show();
+        Bitmap test = Bitmap.createBitmap(640, 200, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(test);
+         // draw a dark gray background
+            Paint backgroundPaint = new Paint();
+            backgroundPaint.setARGB(255, 24, 24, 24);
+            c.drawPaint(backgroundPaint);
 
-//            }
-//        }
+        Path heart = new Path();
+         // prepare a heart shape
+            heart.moveTo(110, 175);
+            heart.lineTo(10, 75);
+            RectF leftCircle = new RectF(10, 25, 110, 125);
+            heart.arcTo(leftCircle, 180, 180);
+            RectF rightCircle = new RectF(110, 25, 210, 125);
+            heart.arcTo(rightCircle, 180, 180);
+            heart.close();
+
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setTextSize(18f);
+        int[] colors = {
+                0xFFFFFF88, // yellow
+                0xFF0088FF, // blue
+                0xFF000000, // black
+                0xFFFFFF88  // yellow
+        };
+        float[] positions = {0.0f, 0.33f, 0.66f, 1.0f};
+         // draw the left heart
+            SweepGradient sweepGradient;
+            { // initialize the sweep gradient
+                sweepGradient = new SweepGradient(50, 50, colors, positions);
+                paint.setShader(sweepGradient);
+            }
+            c.drawPath(heart, paint);
+            c.drawText("SweepGradient", 50, 190, paint);
 
         return root;
     }
