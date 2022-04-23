@@ -2,24 +2,24 @@
 package abraham.ebietsuwa0710;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 public class filecontentFragment extends Fragment {
 
@@ -40,6 +40,7 @@ public class filecontentFragment extends Fragment {
                 try {
                     InputStream inputStream = getContext().openFileInput("abraham.txt");
 
+
                     if (inputStream != null) {
                         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -53,9 +54,10 @@ public class filecontentFragment extends Fragment {
 
                         inputStream.close();
                         result = stringBuilder.toString();
-                        textViewFromFile.setText(result);
 
-                        if (result.isEmpty()){
+                        if (result.isEmpty()) {
+                            textViewFromFile.setText("No content");
+                        } else {
                             textViewFromFile.setText(result);
                         }
 
@@ -71,24 +73,21 @@ public class filecontentFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                File out = new File("abraham.txt");
-
                 try {
-                    OutputStream os = new FileOutputStream(out);
 
-                    String filePath = out.getAbsolutePath();
-                    if (out.exists()) {
-                        out.getCanonicalFile().delete();
-                        if (out.exists()) {
-                            getActivity().getApplicationContext().deleteFile(out.getName());
-                        }
-                    }
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("abraham.txt", Context.MODE_PRIVATE));
+//                    outputStreamWriter.write("theInfo");
+                    outputStreamWriter.close();
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    File file = new File(System.getProperty("user.dir"), "abraham.txt");
+                    file.delete();
+
+
+                    Toast.makeText(getContext(), "File deleted", Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Toast.makeText(getContext(), "File not deleted", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

@@ -6,12 +6,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.RadialGradient;
 import android.graphics.RectF;
-import android.graphics.Shader;
 import android.graphics.SweepGradient;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,7 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.DateFormat;
@@ -85,9 +82,12 @@ public class HomeFragment extends Fragment {
                 if (!theInfo.trim().isEmpty()) {
                     try {
 
-                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("abraham.txt", Context.MODE_PRIVATE));
+                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("abraham.txt", Context.MODE_APPEND));
                         outputStreamWriter.append(theInfo);
                         outputStreamWriter.close();
+
+
+//                        outputStreamWriter.g
 
                         Toast.makeText(getContext(), "File saved", Toast.LENGTH_SHORT).show();
                         someInfo.setText("");
@@ -96,6 +96,31 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
 
                     }
+
+
+//                    try {
+//
+//                        File root = new File(Environment.getExternalStorageDirectory(), "Notes");
+//                        if (!root.exists()) {
+//                            root.mkdirs();
+//                        }
+//                        File file = new File(root, "abraham" + ".txt");
+//
+//                        FileWriter fileWriter = new FileWriter(file, true);
+//
+//                        fileWriter.append(theInfo);
+//                        fileWriter.flush();
+//                        fileWriter.close();
+//
+//                        Toast.makeText(getContext(), "File saved", Toast.LENGTH_SHORT).show();
+//
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
+//
+//                    }
+
                 } else {
                     Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
                 }
@@ -112,26 +137,26 @@ public class HomeFragment extends Fragment {
             if (sTime.equals("12hr")) {
                 textClock.setFormat24Hour(null);
             } else {
-               textClock.setFormat12Hour(null);
+                textClock.setFormat12Hour(null);
             }
         }
 
         Bitmap test = Bitmap.createBitmap(640, 200, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(test);
-         // draw a dark gray background
-            Paint backgroundPaint = new Paint();
-            backgroundPaint.setARGB(255, 24, 24, 24);
-            c.drawPaint(backgroundPaint);
+        // draw a dark gray background
+        Paint backgroundPaint = new Paint();
+        backgroundPaint.setARGB(255, 24, 24, 24);
+        c.drawPaint(backgroundPaint);
 
         Path heart = new Path();
-         // prepare a heart shape
-            heart.moveTo(110, 175);
-            heart.lineTo(10, 75);
-            RectF leftCircle = new RectF(10, 25, 110, 125);
-            heart.arcTo(leftCircle, 180, 180);
-            RectF rightCircle = new RectF(110, 25, 210, 125);
-            heart.arcTo(rightCircle, 180, 180);
-            heart.close();
+        // prepare a heart shape
+        heart.moveTo(110, 175);
+        heart.lineTo(10, 75);
+        RectF leftCircle = new RectF(10, 25, 110, 125);
+        heart.arcTo(leftCircle, 180, 180);
+        RectF rightCircle = new RectF(110, 25, 210, 125);
+        heart.arcTo(rightCircle, 180, 180);
+        heart.close();
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(18f);
@@ -142,14 +167,14 @@ public class HomeFragment extends Fragment {
                 0xFFFFFF88  // yellow
         };
         float[] positions = {0.0f, 0.33f, 0.66f, 1.0f};
-         // draw the left heart
-            SweepGradient sweepGradient;
-            { // initialize the sweep gradient
-                sweepGradient = new SweepGradient(50, 50, colors, positions);
-                paint.setShader(sweepGradient);
-            }
-            c.drawPath(heart, paint);
-            c.drawText("SweepGradient", 50, 190, paint);
+        // draw the left heart
+        SweepGradient sweepGradient;
+        { // initialize the sweep gradient
+            sweepGradient = new SweepGradient(50, 50, colors, positions);
+            paint.setShader(sweepGradient);
+        }
+        c.drawPath(heart, paint);
+        c.drawText("SweepGradient", 50, 190, paint);
 
         return root;
     }
