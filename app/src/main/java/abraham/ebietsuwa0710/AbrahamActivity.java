@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import abraham.ebietsuwa0710.ui.home.HomeFragment;
 import abraham.ebietsuwa0710.ui.weather.WeatherFragment;
 
 public class AbrahamActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
@@ -37,16 +38,17 @@ public class AbrahamActivity extends AppCompatActivity implements NavigationView
         toggle.syncState();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new homeFragment()).commit();
+                    new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_message);
         }
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new homeFragment()).commit();
+                        new HomeFragment()).commit();
                 break;
             case R.id.nav_downloads:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

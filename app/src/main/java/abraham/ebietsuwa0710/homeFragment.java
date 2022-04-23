@@ -11,10 +11,5 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class homeFragment extends Fragment {
-    @Nullable
 
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-
-    }
 }

@@ -35,8 +35,8 @@ public class HomeFragment extends Fragment {
 
         TextView dateText = root.findViewById(R.id.the_date);
 
-//        DateFormat dateFormat = new SimpleDateFormat();
-        Toast.makeText(getActivity(), "pppppppppppppppppppppppppppppppppppppppppppppppppppp", Toast.LENGTH_LONG).show();
+        DateFormat dateFormat = new SimpleDateFormat();
+//        Toast.makeText(getActivity(), "pppppppppppppppppppppppppppppppppppppppppppppppppppp", Toast.LENGTH_LONG).show();
 
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
