@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                     try {
 
                         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("abraham.txt", Context.MODE_PRIVATE));
-                        outputStreamWriter.write(theInfo);
+                        outputStreamWriter.append(theInfo);
                         outputStreamWriter.close();
 
                         Toast.makeText(getContext(), "File saved", Toast.LENGTH_SHORT).show();
