@@ -2,7 +2,6 @@ package abraham.ebietsuwa0710.ui.home;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,10 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.io.IOException;
@@ -27,7 +24,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import abraham.ebietsuwa0710.R;
-import abraham.ebietsuwa0710.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
@@ -38,7 +34,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 //        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = inflater.inflate(R.layout.fragment_home,container,false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         TextView dateText = root.findViewById(R.id.the_date);
 
@@ -66,27 +62,27 @@ public class HomeFragment extends Fragment {
                 String theInfo = someInfo.getText().toString();
 
                 if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                     return;
                 }
 
 
-                if (!theInfo.trim().isEmpty()){
+                if (!theInfo.trim().isEmpty()) {
                     try {
 
                         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("abraham.txt", Context.MODE_PRIVATE));
                         outputStreamWriter.write(theInfo);
                         outputStreamWriter.close();
 
-                        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getContext(), "File saved", Toast.LENGTH_SHORT).show();
+                        saveToFile.setText("");
                     } catch (IOException e) {
                         e.printStackTrace();
-                        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
 
                     }
-                }else {
-                    Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "File not saved", Toast.LENGTH_SHORT).show();
                 }
 
             }
