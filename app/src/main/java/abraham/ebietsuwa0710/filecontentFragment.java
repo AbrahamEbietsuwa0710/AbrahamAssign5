@@ -84,6 +84,7 @@ public class filecontentFragment extends Fragment {
 
 
                     Toast.makeText(getContext(), "File deleted", Toast.LENGTH_SHORT).show();
+                    textViewFromFile.setText("deleted");
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getContext(), "File not deleted", Toast.LENGTH_SHORT).show();
