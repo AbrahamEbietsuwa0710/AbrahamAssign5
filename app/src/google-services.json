@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "633050098068",
+    "project_id": "abrahamassign4",
+    "storage_bucket": "abrahamassign4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633050098068:android:c7db9e2ec3868b804e8781",
+        "android_client_info": {
+          "package_name": "abraham.ebietsuwa0710"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633050098068-1viv9oohscnr3evet3lhtbmip6ak830i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9PKXf4H7EDy2fUlw8FHQOm6z5JFtFnTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633050098068-1viv9oohscnr3evet3lhtbmip6ak830i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
