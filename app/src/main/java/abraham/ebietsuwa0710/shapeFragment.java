@@ -32,8 +32,8 @@ public class shapeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_shape, container, false);
 
-        autoCompleteTextView = view.findViewById(R.id.email);
-        Switch aSwitch = view.findViewById(R.id.a_switch);
+        autoCompleteTextView = view.findViewById(R.id.abrahamemail);
+        Switch aSwitch = view.findViewById(R.id.abraham_a_switch);
 
 
         firebaseFirestore = FirebaseFirestore.getInstance();

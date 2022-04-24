@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:id="@+id/name"
+        android:id="@+id/abrahamname"
         android:text="shape Fragment"
         android:layout_marginTop="20dp"
         android:textSize="30sp"
@@ -25,20 +25,20 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/name"
-        android:id="@+id/email"/>
+        app:layout_constraintTop_toBottomOf="@id/abrahamname"
+        android:id="@+id/abrahamemail"/>
 
     <Switch
-        android:id="@+id/a_switch"
+        android:id="@+id/abraham_a_switch"
         android:layout_width="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/abrahamname" />
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+        android:id="@+id/abrahamadView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

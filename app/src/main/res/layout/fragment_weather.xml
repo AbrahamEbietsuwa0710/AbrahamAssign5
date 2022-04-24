@@ -6,7 +6,7 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/my_student_id"
+        android:id="@+id/abrahammy_student_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/select"
+        android:id="@+id/abrahamselect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -27,20 +27,20 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_student_id" />
+        app:layout_constraintTop_toBottomOf="@id/abrahammy_student_id" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/abrahamspinner"
         android:layout_width="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/select"
+        app:layout_constraintTop_toBottomOf="@id/abrahamselect"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/abrahamresult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -51,6 +51,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner" />
+        app:layout_constraintTop_toBottomOf="@id/abrahamspinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

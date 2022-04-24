@@ -42,7 +42,7 @@ public class WeatherFragment extends Fragment {
 
         String[] users = {"Select city", "Abuja", "Toronto", "London", "Montreal", "Calgary"};
 
-        TextView result = view.findViewById(R.id.result);
+        TextView result = view.findViewById(R.id.abrahamresult);
 
         String preferencesName = "abrahamPreferencesName";
 
@@ -64,7 +64,7 @@ public class WeatherFragment extends Fragment {
         }
 
 
-        Spinner spin = view.findViewById(R.id.spinner);
+        Spinner spin = view.findViewById(R.id.abrahamspinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, users);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adapter);
